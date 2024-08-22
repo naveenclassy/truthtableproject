@@ -43,7 +43,9 @@ function evaluateExpression(expression, values) {
 
     // Evaluate logical operations
     try {
-        return new Function('return ' + parseBooleanExpression(substituted))();
+        var output = new Function('return ' + parseBooleanExpression(substituted))();
+        if(output==true) return 'T';
+        else return 'F';
     } catch (e) {
         return 'Invalid Expression';
     }
